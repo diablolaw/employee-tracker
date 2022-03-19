@@ -185,7 +185,6 @@ function updateEmployee() {
             `UPDATE employee SET role_id = ${roleId} WHERE id = ${employeeId}`,
             function (err, results) {
               console.log(`Updated ${res.employee} to the database`);
-              console.log(err);
             }
           );
         });
