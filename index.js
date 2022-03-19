@@ -1,5 +1,6 @@
 const inquire = require("inquirer");
 const db = require("./config/connection");
+const queryFunctions = require("./queries");
 
 function init() {
   inquire
@@ -28,15 +29,30 @@ function init() {
           break;
 
         case "view all role":
-          db.query("SELECT * FROM role", function (err, results) {
-            console.table(results);
-          });
+          //   db.query("SELECT * FROM role", function (err, results) {
+          //     console.table(results);
+          //   });
+          queryFunctions.viewRoles();
           break;
 
         case "view all employees":
-          db.query("SELECT * FROM employee", function (err, results) {
-            console.table(results);
-          });
+          queryFunctions.viewEmployees();
+          break;
+
+        case "add a department":
+          queryFunctions.addDepartment();
+          break;
+
+        case "add a role":
+          queryFunctions.addRole();
+          break;
+
+        case "add an employee":
+          queryFunctions.addEmployee();
+          break;
+
+        case "update an employee":
+          queryFunctions.updateEmployee();
           break;
 
         default:
